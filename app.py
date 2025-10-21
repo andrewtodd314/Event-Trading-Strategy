@@ -80,12 +80,12 @@ def run_strategy(tickers, lower, upper, start_date, end_date):
 # Build Gradio interface
 with gr.Blocks(title="Earnings Call Sentiment Strategy Backtest") as app:
     gr.Markdown("## Earnings Call Sentiment Strategy Backtest")
-    gr.Markdown("Adjust thresholds, select tickers, and define the backtest period to explore trading performance.")
+    gr.Markdown("Adjust thresholds, select tickers, and define the backtest period to explore trading performance ⚠️ Please select dates between 2014-01-01 and 2020-01-01")
 
     with gr.Row():
         tickers_input = gr.Dropdown(trading_df['ticker'].unique().tolist(), label="Select Tickers", multiselect=True)
-        lower_input = gr.Slider(-1.0, 1.0, value=-0.25, step=0.05, label="Lower Threshold (Short)")
-        upper_input = gr.Slider(-1.0, 1.0, value=0.75, step=0.05, label="Upper Threshold (Long)")
+        lower_input = gr.Slider(-1.0, 1.0, value=-0.5, step=0.05, label="Lower Threshold (Short)")
+        upper_input = gr.Slider(-1.0, 1.0, value=0.5, step=0.05, label="Upper Threshold (Long)")
         start_input = gr.Textbox(label="Start Date (YYYY-MM-DD)")
         end_input = gr.Textbox(label="End Date (YYYY-MM-DD)")
 
